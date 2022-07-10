@@ -14,7 +14,7 @@ export class SortingVisualizer extends React.Component<{}, ArrayState> {
 
         this.state = {
             array: [],
-            arraySize: 300,
+            arraySize: 100,
             min: 5,
             max: 1000
         }
@@ -36,29 +36,35 @@ export class SortingVisualizer extends React.Component<{}, ArrayState> {
 
         this.setState({ array })
     }
+
+
+
     render() {
         const array = this.state.array
+        const arraySize = this.state.arraySize
 
         return (
             <>
-                <div className="grid gap-10 grid-rows-2">
-                    <div className="flex gap-2">
-                        <h1>hello</h1>
-                        <h1>hello</h1>
+                <div className="m-5">
+                    <div className="text-center">
+                        {array && array.map((value: any, idx: any) => {
+                            return (
+                                <div
+                                    key={idx}
+                                    className="inline-block bg-slate-400"
+                                    style={{
+                                        height: `${value * 0.075}vh`,
+                                        padding: `${450 / arraySize}px`,
+                                    }}
+                                ></div>
+                            )
+                        })}
                     </div>
-                    <div className="absolute">
-                        {array &&
-                            array.map((value: any, idx: any) => {
-                                return (
-                                    <div
-                                        key={idx}
-                                        className="inline-block bg-slate-400 px-0.5 rounded-lg"
-                                        style={{
-                                            height: `${value * 0.095}vh`
-                                        }}
-                                    ></div>
-                                )
-                            })}
+                    <div>
+                        <button 
+                        >
+                            <h1>increase</h1>
+                        </button>
                     </div>
                 </div>
             </>
