@@ -37,8 +37,6 @@ export class SortingVisualizer extends React.Component<{}, ArrayState> {
         this.setState({ array })
     }
 
-
-
     render() {
         const array = this.state.array
         const arraySize = this.state.arraySize
@@ -61,10 +59,8 @@ export class SortingVisualizer extends React.Component<{}, ArrayState> {
                         })}
                     </div>
                     <div>
-                        <button 
-                        >
-                            <h1>increase</h1>
-                        </button>
+                        <h1>tmp: make a scroll bar to increase array size</h1>
+                        <h1>tmp: make a scroll bar to increase array min max</h1>
                     </div>
                 </div>
             </>
