@@ -44,6 +44,12 @@ export class SortingVisualizer extends React.Component<{}, ArrayState> {
         });
     }
 
+    returnOriginalArraySize = () => {
+        this.setState({arraySize: 200}, () => {
+            this.resetArray()
+        })
+    }
+
     // algos
 
     mergeSort = () => {
@@ -84,12 +90,27 @@ export class SortingVisualizer extends React.Component<{}, ArrayState> {
                             New Array
                         </button>
                         <button
-                            onClick={() => this.changeArraySize(100)}
+                            onClick={() => this.changeArraySize(-50)}
+                            className="bg-slate-400 p-5 rounded-full hover:ring-2 ring-slate-500 text-slate-100"
                         >
-                            increase
+                            Dec
                         </button>
-
-                        <input type="range" min="10" max="1000" name='arraySize' value={this.state.arraySize} onChange={(e) => this.changeArraySize(e)}/>
+                        <h1
+                            className="bg-slate-400 p-5 rounded-full hover:ring-2 ring-slate-500 text-slate-100"
+                        >ArraySize: {this.state.arraySize}
+                        </h1>
+                        <button
+                            onClick={() => this.changeArraySize(+50)}
+                            className="bg-slate-400 p-5 rounded-full hover:ring-2 ring-slate-500 text-slate-100"
+                        >
+                            Inc
+                        </button>
+                        <button
+                            onClick={() => this.returnOriginalArraySize()}
+                            className="bg-slate-400 p-5 rounded-full hover:ring-2 ring-slate-500 text-slate-100"
+                        >
+                            Reset
+                        </button>
                     </div>
                 </div>
             </>
@@ -98,6 +119,7 @@ export class SortingVisualizer extends React.Component<{}, ArrayState> {
 }
 // code explanation
 // use arrow func in this.resetArray because of this context
+//<input type="range" min="10" max="1000" name='arraySize' value={this.state.arraySize} onChange={(e) => this.changeArraySize(e)}/>
 
 function randomIntFromInterval(min: any, max: any) {
     // min and max included
