@@ -61,7 +61,7 @@ export class SortingVisualizer extends React.Component<{}, ArrayState> {
                                     className="inline-block bg-slate-400"
                                     style={{
                                         height: `${value * 0.075}vh`,
-                                        width: `${num / arraySize}px`,
+                                        width: `${40 / arraySize}vw`,
                                         margin: `${0} ${num / arraySize}px`,
                                     }}
                                 ></div>
