@@ -69,7 +69,7 @@ export class SortingVisualizer extends React.Component<{}, ArrayState> {
         return (
             <>
                 <div className="">
-                    <div className="text-center w-screen mt-2 min-h-half-screen">
+                    <div className="flex justify-center w-screen mt-2 min-h-half-screen">
                         {array &&
                             array.map((value: any, idx: any) => {
                                 return (
