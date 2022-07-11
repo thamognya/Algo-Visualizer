@@ -1,7 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
 // file imports
-import { mergeSort } from '../sortingAlgorithms/mergeSort'
+import mergeSort from '../sortingAlgorithms/mergeSort'
+import randomIntFromInterval from '../tools/randIntInterval'
 
 interface ArrayState {
     array: any
@@ -128,8 +129,3 @@ export class SortingVisualizer extends React.Component<{}, ArrayState> {
 // code explanation
 // use arrow func in this.resetArray because of this context
 //<input type="range" min="10" max="1000" name='arraySize' value={this.state.arraySize} onChange={(e) => this.changeArraySize(e)}/>
-
-function randomIntFromInterval(min: any, max: any) {
-    // min and max included
-    return Math.floor(Math.random() * (max - min + 1) + min)
-}

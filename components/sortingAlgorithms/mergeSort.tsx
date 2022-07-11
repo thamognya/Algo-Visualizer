@@ -19,7 +19,7 @@ const _mergeArrays = (a: any, b: any) => {
     return c
 }
 
-export const mergeSort = (a: any) => {
+const mergeSort = (a: any) => {
     if (a.length < 2) {
         return a
     }
@@ -30,3 +30,5 @@ export const mergeSort = (a: any) => {
     const sorted_r: any = mergeSort(a_r)
     return _mergeArrays(sorted_l, sorted_r)
 }
+
+export default mergeSort
