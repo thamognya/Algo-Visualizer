@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
 
+import {Button} from '@chakra-ui/react'
+
 interface ArrayState {
     array: any
     arraySize: number
@@ -9,12 +11,13 @@ interface ArrayState {
 }
 
 export class SortingVisualizer extends React.Component<{}, ArrayState> {
+    // arrays
     constructor(props: {} | Readonly<{}>) {
         super(props)
 
         this.state = {
             array: [],
-            arraySize: 100,
+            arraySize: 300,
             min: 5,
             max: 1000
         }
@@ -36,31 +39,42 @@ export class SortingVisualizer extends React.Component<{}, ArrayState> {
 
         this.setState({ array })
     }
+    // algos
+
+    // buttons
+
+
 
     render() {
         const array = this.state.array
         const arraySize = this.state.arraySize
+        const num = 350 // const value
 
         return (
             <>
-                <div className="m-5">
-                    <div className="text-center">
+                <div className="">
+                    <div className="text-center w-screen min-h-half-screen">
                         {array && array.map((value: any, idx: any) => {
                             return (
                                 <div
                                     key={idx}
-                                    className="inline-block bg-slate-400"
+                                    className="inline-block bg-slate-400 dark:bg"
                                     style={{
                                         height: `${value * 0.075}vh`,
-                                        padding: `${450 / arraySize}px`,
+                                        width: `${40 / arraySize}vw`,
+                                        margin: `${0} ${num / arraySize}px`,
                                     }}
                                 ></div>
                             )
                         })}
                     </div>
-                    <div>
-                        <h1>tmp: make a scroll bar to increase array size</h1>
-                        <h1>tmp: make a scroll bar to increase array min max</h1>
+                    <div className="absolute bottom-0 flex gap-5 p-2 w-screen items-center bg-slate-900">
+                        <button 
+                            onClick={() => this.resetArray()}
+                            className="bg-slate-400 p-5 rounded-full hover:ring-2 ring-slate-500 text-slate-100"
+                        >
+                            Gen a new Array
+                        </button>
                     </div>
                 </div>
             </>

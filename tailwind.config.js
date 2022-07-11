@@ -8,7 +8,11 @@ module.exports = {
         fontFamily: {
             fira: ['Fira Code']
         },
-        extend: {}
+        extend: {
+            height: {
+                'half-screen': '50vh'
+            },
+        }
     },
     plugins: []
 }
