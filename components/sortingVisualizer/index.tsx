@@ -17,7 +17,7 @@ export class SortingVisualizer extends React.Component<{}, ArrayState> {
 
         this.state = {
             array: [],
-            arraySize: 300,
+            arraySize: 200,
             min: 5,
             max: 1000
         }
