@@ -18,9 +18,7 @@ const Main = ({ children, router }: any) => {
                     <title>Thamognya Kodi - Sorting Visualizer</title>
                 </Head>
             </div>
-            <div>
-                {children}
-            </div>
+            <div>{children}</div>
         </div>
     )
 }

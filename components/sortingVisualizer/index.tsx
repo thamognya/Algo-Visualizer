@@ -1,5 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
+// file imports
+import * as sortingAlgorithms from '../sortingAlgorithms'
 
 interface ArrayState {
     array: any
@@ -21,11 +23,11 @@ export class SortingVisualizer extends React.Component<{}, ArrayState> {
         }
     }
 
-    componentDidMount() {
+    componentDidMount = () => {
         this.resetArray()
     }
 
-    resetArray() {
+    resetArray = () => {
         const array = []
         const n: number = this.state.arraySize
         const min: number = this.state.min
@@ -39,9 +41,9 @@ export class SortingVisualizer extends React.Component<{}, ArrayState> {
     }
 
     changeArraySize = (e: any) => {
-        this.setState({arraySize: this.state.arraySize + e}, () => {
+        this.setState({ arraySize: this.state.arraySize + e }, () => {
             this.resetArray()
-        });
+        })
     }
 
     returnOriginalArraySize = () => {
@@ -53,11 +55,11 @@ export class SortingVisualizer extends React.Component<{}, ArrayState> {
     // algos
 
     mergeSort = () => {
-
+        const sortedArray: any = sortingAlgorithms.mergeSort(this.state.array)
+        this.setState({array: sortedArray})
     }
 
     // buttons
-
 
     render() {
         const array = this.state.array
@@ -67,49 +69,55 @@ export class SortingVisualizer extends React.Component<{}, ArrayState> {
         return (
             <>
                 <div className="">
-                    <div className="flex justify-center w-screen min-h-half-screen">
-                        {array && array.map((value: any, idx: any) => {
-                            return (
-                                <div
-                                    key={idx}
-                                    className="inline-block bg-slate-400"
-                                    style={{
-                                        height: `${value * 0.075}vh`,
-                                        width: `${40 / arraySize}vw`,
-                                        margin: `${0} ${num / arraySize}px`,
-                                    }}
-                                ></div>
-                            )
-                        })}
+                    <div className="text-center w-screen mt-2 min-h-half-screen">
+                        {array &&
+                            array.map((value: any, idx: any) => {
+                                return (
+                                    <div
+                                        key={idx}
+                                        className="inline-block bg-slate-200"
+                                        style={{
+                                            height: `${value * 0.075}vh`,
+                                            width: `${40 / arraySize}vw`,
+                                            margin: `${0} ${num / arraySize}px`
+                                        }}
+                                    ></div>
+                                )
+                            })}
                     </div>
-                    <div className="absolute bottom-0 flex gap-5 p-2 w-screen items-center bg-slate-900">
-                        <button 
+                    <div className="absolute bottom-0 flex gap-5 p-2 w-screen items-center bg-slate-800">
+                        <button
                             onClick={() => this.resetArray()}
-                            className="bg-slate-400 p-5 rounded-full hover:ring-2 ring-slate-500 text-slate-100"
+                            className="bg-slate-500 p-5 rounded-full hover:ring-2 ring-slate-300 text-slate-100"
                         >
                             New Array
                         </button>
                         <button
                             onClick={() => this.changeArraySize(-50)}
-                            className="bg-slate-400 p-5 rounded-full hover:ring-2 ring-slate-500 text-slate-100"
+                            className="bg-slate-500 p-5 rounded-full hover:ring-2 ring-slate-300 text-slate-100"
                         >
                             Dec
                         </button>
-                        <h1
-                            className="bg-slate-400 p-5 rounded-full hover:ring-2 ring-slate-500 text-slate-100"
-                        >ArraySize: {this.state.arraySize}
+                        <h1 className="bg-slate-500 p-5 rounded-full hover:ring-2 ring-slate-300 text-slate-100">
+                            ArraySize: {this.state.arraySize}
                         </h1>
                         <button
                             onClick={() => this.changeArraySize(+50)}
-                            className="bg-slate-400 p-5 rounded-full hover:ring-2 ring-slate-500 text-slate-100"
+                            className="bg-slate-500 p-5 rounded-full hover:ring-2 ring-slate-300 text-slate-100"
                         >
                             Inc
                         </button>
                         <button
                             onClick={() => this.returnOriginalArraySize()}
-                            className="bg-slate-400 p-5 rounded-full hover:ring-2 ring-slate-500 text-slate-100"
+                            className="bg-slate-500 p-5 rounded-full hover:ring-2 ring-slate-300 text-slate-100"
                         >
                             Reset
+                        </button>
+                        <button
+                            onClick={() => this.mergeSort()}
+                            className="bg-slate-500 p-5 rounded-full hover:ring-2 ring-slate-300 text-slate-100"
+                        >
+                            Merge Sort
                         </button>
                     </div>
                 </div>

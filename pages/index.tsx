@@ -6,7 +6,7 @@ import { SortingVisualizer } from '../components/sortingVisualizer'
 
 const Home: NextPage = () => {
     return (
-        <div className="max-h-screen">
+        <div className="max-h-screen bg-slate-900">
             <SortingVisualizer />
         </div>
     )

@@ -11,7 +11,7 @@ module.exports = {
         extend: {
             height: {
                 'half-screen': '50vh'
-            },
+            }
         }
     },
     plugins: []
