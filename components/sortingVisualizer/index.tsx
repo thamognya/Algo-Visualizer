@@ -1,8 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
 
-import {Button} from '@chakra-ui/react'
-
 interface ArrayState {
     array: any
     arraySize: number
@@ -39,10 +37,20 @@ export class SortingVisualizer extends React.Component<{}, ArrayState> {
 
         this.setState({ array })
     }
+
+    changeArraySize = (e: any) => {
+        this.setState({arraySize: this.state.arraySize + e}, () => {
+            this.resetArray()
+        });
+    }
+
     // algos
 
-    // buttons
+    mergeSort = () => {
 
+    }
+
+    // buttons
 
 
     render() {
@@ -53,7 +61,7 @@ export class SortingVisualizer extends React.Component<{}, ArrayState> {
         return (
             <>
                 <div className="">
-                    <div className="text-center w-screen min-h-half-screen">
+                    <div className="flex justify-center w-screen min-h-half-screen">
                         {array && array.map((value: any, idx: any) => {
                             return (
                                 <div
@@ -73,14 +81,23 @@ export class SortingVisualizer extends React.Component<{}, ArrayState> {
                             onClick={() => this.resetArray()}
                             className="bg-slate-400 p-5 rounded-full hover:ring-2 ring-slate-500 text-slate-100"
                         >
-                            Gen a new Array
+                            New Array
                         </button>
+                        <button
+                            onClick={() => this.changeArraySize(100)}
+                        >
+                            increase
+                        </button>
+
+                        <input type="range" min="10" max="1000" name='arraySize' value={this.state.arraySize} onChange={(e) => this.changeArraySize(e)}/>
                     </div>
                 </div>
             </>
         )
     }
 }
+// code explanation
+// use arrow func in this.resetArray because of this context
 
 function randomIntFromInterval(min: any, max: any) {
     // min and max included
