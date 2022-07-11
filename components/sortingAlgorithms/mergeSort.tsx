@@ -1,3 +1,5 @@
+// testing with jest
+
 // copied from https://flaviocopes.com/merge-sort-javascript/
 const _mergeArrays = (a: any, b: any) => {
     const c = []

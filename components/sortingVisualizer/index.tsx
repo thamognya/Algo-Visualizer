@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 // file imports
-import * as sortingAlgorithms from '../sortingAlgorithms'
+import { mergeSort } from '../sortingAlgorithms/mergeSort'
 
 interface ArrayState {
     array: any
@@ -47,16 +47,16 @@ export class SortingVisualizer extends React.Component<{}, ArrayState> {
     }
 
     returnOriginalArraySize = () => {
-        this.setState({arraySize: 200}, () => {
+        this.setState({ arraySize: 200 }, () => {
             this.resetArray()
         })
     }
 
     // algos
 
-    mergeSort = () => {
-        const sortedArray: any = sortingAlgorithms.mergeSort(this.state.array)
-        this.setState({array: sortedArray})
+    algoMergeSort = () => {
+        const sortedArray: any = mergeSort(this.state.array)
+        this.setState({ array: sortedArray })
     }
 
     // buttons
@@ -114,7 +114,7 @@ export class SortingVisualizer extends React.Component<{}, ArrayState> {
                             Reset
                         </button>
                         <button
-                            onClick={() => this.mergeSort()}
+                            onClick={() => this.algoMergeSort()}
                             className="bg-slate-500 p-5 rounded-full hover:ring-2 ring-slate-300 text-slate-100"
                         >
                             Merge Sort
