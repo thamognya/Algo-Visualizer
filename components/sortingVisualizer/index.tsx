@@ -86,25 +86,25 @@ export class SortingVisualizer extends React.Component<{}, ArrayState> {
                                 )
                             })}
                     </div>
-                    <div className="absolute bottom-0 flex gap-5 p-2 w-screen items-center bg-slate-800">
+                    <div className="absolute bottom-0 flex gap-2 p-2 w-screen items-center justify-center bg-slate-800">
                         <button
                             onClick={() => this.resetArray()}
-                            className="bg-slate-500 p-5 rounded-full hover:ring-2 ring-slate-300 text-slate-100"
+                            className="bg-slate-500 p-2 rounded-full hover:ring-2 ring-slate-300 text-slate-100"
                         >
                             New Array
                         </button>
                         <button
                             onClick={() => this.changeArraySize(-50)}
-                            className="bg-slate-500 p-5 rounded-full hover:ring-2 ring-slate-300 text-slate-100"
+                            className="bg-slate-500 p-2 rounded-full hover:ring-2 ring-slate-300 text-slate-100"
                         >
                             Dec
                         </button>
-                        <h1 className="bg-slate-500 p-5 rounded-full hover:ring-2 ring-slate-300 text-slate-100">
+                        <h1 className="bg-slate-500 p-2 rounded-full hover:ring-2 ring-slate-300 text-slate-100">
                             ArraySize: {this.state.arraySize}
                         </h1>
                         <button
                             onClick={() => this.changeArraySize(+50)}
-                            className="bg-slate-500 p-5 rounded-full hover:ring-2 ring-slate-300 text-slate-100"
+                            className="bg-slate-500 p- rounded-full hover:ring-2 ring-slate-300 text-slate-100"
                         >
                             Inc
                         </button>
