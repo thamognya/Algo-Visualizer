@@ -5,7 +5,7 @@
     "homepage": "https://thamognya.github.io/sorting-visualizer",
     "scripts": {
         "predeploy": "npm run build && npm run export",
-        "deploy": "gh-pages -d build",
+        "deploy": "npm run predeploy && gh-pages -d build",
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
