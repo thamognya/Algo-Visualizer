@@ -5,7 +5,14 @@ module.exports = {
         './components/**/*.{js,ts,jsx,tsx}'
     ],
     theme: {
-        extend: {}
+        fontFamily: {
+            fira: ['Fira Code']
+        },
+        extend: {
+            height: {
+                'half-screen': '50vh'
+            }
+        }
     },
     plugins: []
 }
