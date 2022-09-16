@@ -1,3 +1,1 @@
-# Jest Testing Directory
-
-Write your tests here
+# JEST Testing Dir
