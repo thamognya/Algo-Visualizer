@@ -1,30 +1,27 @@
 import '../styles/globals.sass'
 import type { AppProps } from 'next/app'
 import Main from '../components/layouts/main'
-import { useRouter } from 'next/router'
+import Router from 'next/router'
+import { useState, useEffect } from 'react'
 import React from 'react'
 
-function MyApp ({ Component, pageProps }: AppProps) {
-    const router = useRouter()
+function MyApp({ Component, pageProps }: AppProps) {
+    const [loading, setLoading] = useState(false)
 
-    const [pageLoading, setPageLoading] = React.useState<boolean>(false)
-
-    React.useEffect(() => {
-        const handleStart = () => {
-            setPageLoading(true)
+    useEffect(() => {
+        Router.events.on('routeChangeStart', () => setLoading(true))
+        Router.events.on('routeChangeComplete', () => setLoading(false))
+        Router.events.on('routeChangeError', () => setLoading(false))
+        return () => {
+            Router.events.off('routeChangeStart', () => setLoading(true))
+            Router.events.off('routeChangeComplete', () => setLoading(false))
+            Router.events.off('routeChangeError', () => setLoading(false))
         }
-        const handleComplete = () => {
-            setPageLoading(false)
-        }
-
-        router.events.on('routeChangeStart', handleStart)
-        router.events.on('routeChangeComplete', handleComplete)
-        router.events.on('routeChangeError', handleComplete)
-    }, [router])
+    }, [])
 
     return (
         <div>
-            {!pageLoading ? (
+            {!loading ? (
                 <React.Fragment>
                     <div>
                         <Main>
